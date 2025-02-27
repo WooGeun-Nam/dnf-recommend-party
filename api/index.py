@@ -354,4 +354,5 @@ def get_eligible_dungeons(min_fame, dungeon_list):
 
     return eligible[:2]  # ✅ 최상위 2개 던전만 반환
 
-app = Flask(__name__)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
