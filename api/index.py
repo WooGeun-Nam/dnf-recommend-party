@@ -7,6 +7,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = "/data/adventure.db"  # ✅ Railway에서 영구 저장 가능
 
+app = Flask(__name__, template_folder="templates")  # templates 폴더 명시적으로 지정
+
 def get_db_connection():
     """SQLite DB 연결을 반환하는 함수"""
     return sqlite3.connect(DB_PATH)
@@ -355,4 +357,5 @@ def get_eligible_dungeons(min_fame, dungeon_list):
     return eligible[:2]  # ✅ 최상위 2개 던전만 반환
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
