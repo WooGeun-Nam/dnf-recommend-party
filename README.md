@@ -33,49 +33,6 @@
 
 ---
 
-## 🚀 Railway 배포 및 실행 방법
-
-### 📌 **1. Railway에 프로젝트 배포하기**
-
-1️⃣ **[Railway.app](https://railway.app/)에 가입 및 로그인**
-2️⃣ `New Project` → `Deploy from GitHub repo` 클릭
-3️⃣ GitHub에서 해당 저장소 선택 후 배포
-4️⃣ **"Deployments" → "Start Command" 설정 변경**
-
-```bash
- gunicorn index:app --bind 0.0.0.0:5000 --timeout 120
-```
-
-5️⃣ 배포 완료 후 `https://your-railway-app.up.railway.app/`에서 확인
-
----
-
-### 📌 **2. 로컬에서 실행하는 방법**
-
-#### **1️⃣ 가상환경 설정 (선택 사항)**
-
-```bash
-python -m venv venv  # 가상환경 생성
-source venv/bin/activate  # (Linux/macOS)
-venv\Scripts\activate  # (Windows)
-```
-
-#### **2️⃣ 필요한 패키지 설치**
-
-```bash
-pip install -r requirements.txt
-```
-
-#### **3️⃣ Flask 실행**
-
-```bash
-python index.py  # (로컬 개발용)
-```
-
-🚀 서버가 실행되면 `http://127.0.0.1:5000/`에서 확인 가능
-
----
-
 ## ✅ 파일 구조
 
 ```
@@ -103,11 +60,3 @@ python index.py  # (로컬 개발용)
 | 데이터 갱신    | `GET`       | `/refresh_adventure?adventure_name=모험단명`               |
 
 ---
-
-## 🚀 **배포된 Railway URL 예시**
-
-```
-https://your-railway-app.up.railway.app/
-https://your-railway-app.up.railway.app/search_adventure?adventure_name=테스트모험단
-https://your-railway-app.up.railway.app/auto_party?adventures=테스트모험단
-```
